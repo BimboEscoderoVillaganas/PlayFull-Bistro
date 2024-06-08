@@ -16,7 +16,6 @@ import {
   IonIcon,
   IonRow,
   IonSearchbar,
-  IonRouterLink,
   IonBadge
 } from '@ionic/react';
 import { signOut } from 'firebase/auth';
@@ -24,14 +23,14 @@ import { auth, db } from './firebase';
 import { useHistory } from 'react-router-dom';
 import './home.css'; // Import the CSS file
 import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
-import { cart, pencil, pulse, clipboard, arrowBackCircle } from 'ionicons/icons';
+import { cart, pencil, pulse, clipboard } from 'ionicons/icons';
 
 const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [showLogoutAlert, setShowLogoutAlert] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>('');
-  const [totalOrders, setTotalOrders] = useState<number>(0);
-  const [totalFeedbacks, setTotalFeedbacks] = useState<number>(0);
+  const [totalOrders, setTotalOrders] = useState<number | null>(null);
+  const [totalFeedbacks, setTotalFeedbacks] = useState<number | null>(null);
   const history = useHistory();
 
   useEffect(() => {
@@ -123,9 +122,7 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>
-            Home
-          </IonTitle>
+          <IonTitle>Home</IonTitle>
           <IonButton slot="end" onClick={() => setShowLogoutAlert(true)} className="custom-button">Logout</IonButton>
         </IonToolbar>
       </IonHeader>
@@ -152,7 +149,7 @@ const Home: React.FC = () => {
                           <div className="home-card-title">{card.title}</div>
                           <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
                         </IonCol>
-                        {(card.title === 'Orders' || card.title === 'Feedback') && card.notification > 0 && (
+                        {(card.title === 'Orders' || card.title === 'Feedback') && typeof card.notification === 'number' && card.notification > 0 && (
                           <IonCol size="auto">
                             <IonBadge color="danger">{card.notification}</IonBadge>
                           </IonCol>

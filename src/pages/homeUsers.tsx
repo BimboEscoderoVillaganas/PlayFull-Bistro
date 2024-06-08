@@ -29,8 +29,8 @@ const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [showLogoutAlert, setShowLogoutAlert] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>('');
-  const [totalPlacedOrders, setTotalPlacedOrders] = useState<number>(0);
-  const [totalReadyForPickup, setTotalReadyForPickup] = useState<number>(0);
+  const [totalPlacedOrders, setTotalPlacedOrders] = useState<number | null>(null);
+  const [totalReadyForPickup, setTotalReadyForPickup] = useState<number | null>(null);
   const history = useHistory();
 
   useEffect(() => {
@@ -145,7 +145,7 @@ const Home: React.FC = () => {
                           <div className="home-card-title">{card.title}</div>
                           <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
                         </IonCol>
-                        {(card.title === 'Placed Orders' || card.title === 'Ready For Pick Up') && card.notification > 0 && (
+                        {(card.title === 'Placed Orders' || card.title === 'Ready For Pick Up') && typeof card.notification === 'number' && card.notification > 0 && (
                           <IonCol size="auto">
                             <IonBadge color="danger">{card.notification}</IonBadge>
                           </IonCol>

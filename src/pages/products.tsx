@@ -79,8 +79,8 @@ const Products: React.FC = () => {
       setQuantity(0);
       setStoreName('');
       setPrice(0);
-    } catch (error) {
-      setAlertMessage('Error adding product: ' + error.message);
+    } catch (error: any) {
+      setAlertMessage('Error adding product: ' + (error.message || 'Unknown error'));
       setShowAlert(true);
     }
   };
@@ -90,8 +90,8 @@ const Products: React.FC = () => {
       await deleteDoc(doc(db, 'products', id));
       setAlertMessage('Product deleted successfully');
       setShowAlert(true);
-    } catch (error) {
-      setAlertMessage('Error deleting product: ' + error.message);
+    } catch (error: any) {
+      setAlertMessage('Error deleting product: ' + (error.message || 'Unknown error'));
       setShowAlert(true);
     }
   };
@@ -126,8 +126,8 @@ const Products: React.FC = () => {
         setStoreName('');
         setPrice(0);
       }
-    } catch (error) {
-      setAlertMessage('Error updating product: ' + error.message);
+    } catch (error: any) {
+      setAlertMessage('Error updating product: ' + (error.message || 'Unknown error'));
       setShowAlert(true);
     }
   };
@@ -136,7 +136,7 @@ const Products: React.FC = () => {
     try {
       await signOut(auth);
       history.push('/PlayFull-Bistro/login');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error logging out: ', error);
     }
   };
