@@ -65,7 +65,7 @@ const Orders: React.FC = () => {
         <IonContent className="ion-text-center">
           <div>
             <p>No order placed yet.</p>
-            <IonButton routerLink="/PlayFull-Bistro/foodMenu" color="primary">Place Order Now</IonButton>
+            <IonButton routerLink="/PlayFull-Bistro/foodMenu" color="primary">Place Order Now?</IonButton>
           </div>
         </IonContent>
       </IonPage>
