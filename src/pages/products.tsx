@@ -150,7 +150,7 @@ const Products: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>
-            <IonRouterLink href="/PlayFull-Bistro/Home" className="back-button">
+            <IonRouterLink href="./PlayFull-Bistro/Home" className="back-button">
               <IonIcon id="arrow" aria-hidden="true" icon={arrowBackCircle} style={{ fontSize: '34px', marginRight: '10px' }} />
             </IonRouterLink>
             Products
