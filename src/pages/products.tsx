@@ -22,7 +22,7 @@ import {
 } from '@ionic/react';
 import { collection, addDoc, query, onSnapshot, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { auth, db } from './firebase';
-import { trash, pencil, arrowBackCircle } from 'ionicons/icons'; // Import icons
+import { trash, pencil } from 'ionicons/icons'; // Import icons
 import './products.css'; // Import CSS for styling
 import { signOut } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
@@ -153,16 +153,14 @@ const Products: React.FC = () => {
         <IonToolbar>
           <IonButtons slot='start'>
               <IonBackButton defaultHref='/Playfull-Bistro/home'/>
-        </IonButtons>
-          <IonTitle>
-            Products
-          </IonTitle>
+          </IonButtons>
+          <IonTitle>Products</IonTitle>
           <IonButton slot="end" onClick={() => setShowLogoutAlert(true)} className="custom-button">Logout</IonButton>
         </IonToolbar>
       </IonHeader>
 
       <IonContent className="ion-padding">
-        <div className="products-container"><br /><br /><br /><br /><br /><br />
+        <div className="products-container">
           <IonItem>
             <IonLabel position="stacked">Search Products</IonLabel>
             <IonInput
