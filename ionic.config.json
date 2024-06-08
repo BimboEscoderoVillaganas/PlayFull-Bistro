@@ -1,7 +1,0 @@
-{
-  "name": "PlayFull-Bistro",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react-vite"
-}
