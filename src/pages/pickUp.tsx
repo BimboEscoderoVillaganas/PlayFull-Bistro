@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-  IonGrid, IonRow, IonCol, IonIcon, IonRouterLink, IonSpinner, IonButton, IonModal, IonTextarea, IonLabel, IonAlert
+  IonGrid, IonRow, IonCol, IonIcon, IonRouterLink, IonSpinner, IonButton, IonModal, IonTextarea, IonLabel, IonAlert,
+  IonBackButton,
+  IonButtons
 } from '@ionic/react';
 import { collection, query, where, getDocs, deleteDoc, doc, addDoc } from 'firebase/firestore';
 import { db, auth } from './firebase';
@@ -97,11 +99,10 @@ const Products: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>
-            <IonRouterLink href="/PlayFull-Bistro/homeUsers" className="back-button">
-              <IonIcon id="arrow" aria-hidden="true" icon={arrowBackCircle} style={{ fontSize: '34px', marginRight: '10px' }} />
-            </IonRouterLink>For Pick Up
-          </IonTitle>
+          <IonButtons slot='start'>
+              <IonBackButton defaultHref='/Playfull-Bistro/home'/>
+        </IonButtons>
+          <IonTitle>For Pick Up</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

@@ -21,6 +21,8 @@ import {
   IonItem,
   IonLabel,
   IonAlert,
+  IonBackButton,
+  IonButtons,
 } from '@ionic/react';
 import { arrowBackCircle } from 'ionicons/icons';
 import { collection, query, onSnapshot, addDoc, doc, updateDoc } from 'firebase/firestore';
@@ -99,10 +101,10 @@ const Products: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>
-            <IonRouterLink href="/PlayFull-Bistro/homeUsers" className="back-button">
-              <IonIcon id="arrow" aria-hidden="true" icon={arrowBackCircle} style={{ fontSize: '34px', marginRight: '10px' }} />
-            </IonRouterLink>Food Menu</IonTitle>
+        <IonButtons slot='start'>
+              <IonBackButton defaultHref='/Playfull-Bistro/home'/>
+        </IonButtons>
+          <IonTitle>Food Menu</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

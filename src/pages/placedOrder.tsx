@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol, IonIcon, IonRouterLink, IonButton, IonAlert } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol, IonIcon, IonRouterLink, IonButton, IonAlert, IonBackButton, IonButtons } from '@ionic/react';
 import { collection, query, where, onSnapshot, deleteDoc, doc } from 'firebase/firestore';
 import { db, auth } from './firebase'; // Import firebase auth
 import { arrowBackCircle } from 'ionicons/icons';
@@ -56,10 +56,10 @@ const Orders: React.FC = () => {
       <IonPage>
         <IonHeader>
           <IonToolbar>
-            <IonTitle>
-              <IonRouterLink href="/PlayFull-Bistro/homeUsers" className="back-button">
-                <IonIcon id="arrow" aria-hidden="true" icon={arrowBackCircle} style={{ fontSize: '34px', marginRight: '10px' }} />
-              </IonRouterLink>My Orders</IonTitle>
+          <IonButtons slot='start'>
+              <IonBackButton defaultHref='/Playfull-Bistro/home'/>
+        </IonButtons>
+            <IonTitle>My Orders</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-text-center">

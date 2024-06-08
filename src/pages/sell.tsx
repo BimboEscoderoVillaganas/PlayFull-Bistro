@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonRouterLink } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonRouterLink, IonBackButton, IonButtons } from '@ionic/react';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from './firebase';
 import { arrowBackCircle } from 'ionicons/icons';
@@ -36,10 +36,10 @@ const Products: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>
-            <IonRouterLink href="/PlayFull-Bistro/Home" className="back-button">
-              <IonIcon id="arrow" aria-hidden="true" icon={arrowBackCircle} style={{ fontSize: '34px', marginRight: '10px' }} />
-            </IonRouterLink>Sale</IonTitle>
+          <IonButtons slot='start'>
+              <IonBackButton defaultHref='/Playfull-Bistro/home'/>
+        </IonButtons>
+          <IonTitle>Sale</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

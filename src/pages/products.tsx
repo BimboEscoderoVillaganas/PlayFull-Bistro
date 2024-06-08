@@ -17,6 +17,8 @@ import {
   IonCardContent,
   IonIcon,
   IonRouterLink,
+  IonBackButton,
+  IonButtons,
 } from '@ionic/react';
 import { collection, addDoc, query, onSnapshot, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { auth, db } from './firebase';
@@ -149,10 +151,10 @@ const Products: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot='start'>
+              <IonBackButton defaultHref='/Playfull-Bistro/home'/>
+        </IonButtons>
           <IonTitle>
-            <IonRouterLink href="./PlayFull-Bistro/Home" className="back-button">
-              <IonIcon id="arrow" aria-hidden="true" icon={arrowBackCircle} style={{ fontSize: '34px', marginRight: '10px' }} />
-            </IonRouterLink>
             Products
           </IonTitle>
           <IonButton slot="end" onClick={() => setShowLogoutAlert(true)} className="custom-button">Logout</IonButton>
