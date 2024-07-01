@@ -28,6 +28,7 @@ import { signOut } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
 
 interface Product {
+  
   id: string;
   name: string;
   image: string;
